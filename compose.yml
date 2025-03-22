@@ -1,0 +1,40 @@
+services:
+  app-base:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'
+    env_file:
+      - .env
+    profiles:
+      - do-not-run-directly
+
+  # Development-specific service
+  app-dev:
+    extends:
+      service: app-base
+    container_name: ${APP_NAME_SLUG:-app}-be-dev
+    volumes:
+      - ./:/app/
+    environment:
+      - NODE_ENV=dev
+    develop:
+      watch:
+        - path: ./package.json
+          action: rebuild
+        - path: ./
+          target: /app/
+          action: sync+restart
+    profiles:
+      - dev
+
+  # Production-specific service
+  app-prod:
+    extends:
+      service: app-base
+    container_name: ${APP_NAME_SLUG:-app}-be-prod
+    environment:
+      - NODE_ENV=prod
+    profiles:
+      - prod

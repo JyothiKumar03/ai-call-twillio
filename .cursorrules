@@ -1,0 +1,55 @@
+# Code Generation Rules
+
+## Type Definitions
+
+- Prefer prefix types with 'T' (TDataType)
+- Use Record<K,T> for dynamic object types
+- Export types from dedicated '@/types' directory
+
+## Function Patterns
+
+- Use arrow functions with explicit return types in snake_case
+- Default parameters at end of parameter list
+- Prefer object based parameters in case of multiple parameters
+- Destructure objects in parameters
+- Factory functions for similar behaviors
+
+## Error Handling
+
+- Use throw_error utility for consistent errors
+- Include status_code in error construction
+Example:
+
+```ts
+throw_error('Not Found', 404)
+```
+
+## Service Layer
+
+- Use dependency injection pattern
+- Return type Promise<T> for async functions
+- Handle all external service calls with proper error handling
+
+## API Response Format
+
+```ts
+{
+  message: string
+  data?: Record<string, any>
+  pagination?: Record<string, any>
+}
+```
+
+## Logging
+
+- Use structured logging with meta
+- Include request/response context
+- Log levels: error, warn, info, debug
+Example:
+
+```ts
+log.info('Message', { 
+  req: { path, method },
+  meta: { key: value }
+})
+```

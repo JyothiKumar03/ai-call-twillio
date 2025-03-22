@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "mikestead.dotenv",
+    "mhutchie.git-graph",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "YoavBls.pretty-ts-errors",
+    "formulahendry.code-runner",
+    "mervin.markdown-formatter",
+    "christian-kohler.path-intellisense",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}

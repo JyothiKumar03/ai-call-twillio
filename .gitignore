@@ -1,0 +1,23 @@
+# node modules
+node_modules
+
+# env
+.env
+.env.prod
+.env.production
+.env.production.local
+.env.local
+.env.development.local
+.env.test.local
+
+# logs
+.logs
+
+# build
+.dist
+
+# others
+.DS_Store
+
+# coverage
+coverage

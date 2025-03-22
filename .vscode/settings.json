@@ -1,0 +1,38 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "always",
+    "source.removeUnusedImports": "always"
+  },
+  "search.exclude": {
+    ".dist": true,
+    "node_modules": true,
+    "package-lock.json": true
+  },
+  "[json][jsonc][yaml][typescript][javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "eslint.validate": ["javascript", "typescript"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "prettier.requireConfig": true,
+  "cSpell.words": [
+    "commitlint",
+    "esac",
+    "forkee",
+    "kolkata",
+    "lcov",
+    "logtail",
+    "mongodb",
+    "mongoose",
+    "nodemon",
+    "prodgain",
+    "trivago"
+  ]
+}

@@ -4,11 +4,17 @@ import fileUpload from 'express-fileupload'
 
 import cors from 'cors'
 import morgan from 'morgan'
+import path from 'path'
 
 import CustomError from '@/utils/CustomError'
 
 import error_handler from '@/middlewares/error-handler'
 import success_handler from '@/middlewares/success-handler'
+
+import {
+  handleCallResponse,
+  handleIncomingCall
+} from '@/controllers/call-route'
 
 // Initialization
 const app = express()
@@ -22,6 +28,10 @@ app.use(
   fileUpload({
     createParentPath: true
   })
+)
+app.use(
+  '/audio',
+  express.static(path.join(__dirname, '..', '..', '..', 'audio'))
 )
 
 // Add success logger middleware
@@ -48,6 +58,9 @@ app.get('/ftc', async (req: Request, res: Response) => {
 })
 
 // Routes - others routes should be imported here
+
+app.post('/api/twilio/incoming', handleIncomingCall)
+app.post('/api/twilio/outgoing', handleCallResponse)
 
 // Handle unknown routes
 app.all('*', (req, _, next) => {
